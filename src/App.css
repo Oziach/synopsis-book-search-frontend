@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+.container{
+  margin-top: 0;
+}
+
+.custom-bg{
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255,255,255, 100) 60%), 
+  url('./assets/booksToon.jpg');
+}
