@@ -7,12 +7,17 @@ import Results from './components/Results'
 function App() {
   
   const [results, setResults] = useState([])
+  const [userInput, setUserInput] = useState('');
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(9);
   
   return (
     <div className='custom-bg h-screen mb-8'>
       <Header />
-      <UserInput setResults={setResults}/>
-      {results.length <= 0 && <Results/>}
+
+      <UserInput userInput={userInput} setUserInput={setUserInput} setResults={setResults} setPage={setPage} setTotalPages={setTotalPages}/>
+
+      {results.length > 0 && <Results page={page} setPage={setPage} totalPages={totalPages} userInput={userInput} results={results} setResults={setResults}/>}
     </div>
   )
 }

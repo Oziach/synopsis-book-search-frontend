@@ -1,11 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ResultBar from './ResultBar'
 import dropdown_icon from '../assets/dropdown_icon.png'
+import axios from 'axios'
 
-const Results = () => {
+const Results = ({page, setPage, totalPages, userInput, results, setResults}) => {
 
-    const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(9);
+    useEffect(()=>{
+        fetchBooks();
+    },[page, results])
+
+    const capitalizeFirstLetter = (str) => {
+        console.log(str.substring(0,1));
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+      };
+
+    const fetchBooks = async () => {
+        try{
+          const response = await axios.post("http://127.0.0.1:5000/search", {query: userInput, page_number: page})
+          console.log(response.data.results)
+          setResults(response.data.results.results)
+        } catch (error){
+          console.error("Error fetching books ", error);
+        }
+      }
 
     const NextPage = () => {if(page < totalPages){setPage(page+1)} else {setPage(totalPages)}}
     const PrevPage = () => {if(page > 1){setPage(page-1)} else {setPage(1)}}
@@ -20,9 +37,12 @@ const Results = () => {
                 <p>Results</p>
                 <div className='h-[1px] w-24 bg-yellow-500 mt-1' />
             </div>
-            <ResultBar/>
-            <ResultBar/>
-            <ResultBar/>
+            
+            {results.map((result, ind)=>{
+                var summary = capitalizeFirstLetter(result.summary.trim())
+                return(
+                <ResultBar index={(page-1)*10 + ind+1} book_name={result.book_name} summary={summary}/>
+            )})}
 
             <div className='flex font-light items-center justify-center gap-3'>
                 <div className='hover:cursor-pointer flex' onClick={FirstPage}>
