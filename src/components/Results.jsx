@@ -10,7 +10,6 @@ const Results = ({page, setPage, totalPages, userInput, results, setResults}) =>
     },[page])
 
     const capitalizeFirstLetter = (str) => {
-        console.log(str.substring(0,1));
         return str.substring(0, 1).toUpperCase() + str.substring(1);
       };
 

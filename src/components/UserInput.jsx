@@ -27,7 +27,7 @@ const UserInput = ({userInput, setUserInput, setResults, setPage, setTotalPages}
 
   return (
     <div className='flex justify-center'>
-      <form className='inline-flex flex-col items-center w-1/2 gap-2' onSubmit={OnSubmit}>
+      <form className='inline-flex flex-col items-center w-4/5 sm:w-3/4 lg:w-1/2 gap-2' onSubmit={OnSubmit}>
 
         <textarea className='w-full bg-white resize-none border-[0.1rem] border-gray-300 p-2'
           placeholder='Enter book synopsis here...' rows={10} value={text} onChange={(e)=>{setText(e.target.value)}} />
