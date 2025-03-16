@@ -7,7 +7,7 @@ const Results = ({page, setPage, totalPages, userInput, results, setResults}) =>
 
     useEffect(()=>{
         fetchBooks();
-    },[page, results])
+    },[page])
 
     const capitalizeFirstLetter = (str) => {
         console.log(str.substring(0,1));
@@ -44,7 +44,7 @@ const Results = ({page, setPage, totalPages, userInput, results, setResults}) =>
                 <ResultBar index={(page-1)*10 + ind+1} book_name={result.book_name} summary={summary}/>
             )})}
 
-            <div className='flex font-light items-center justify-center gap-3'>
+            {results.length > 0 && <div className='flex font-light items-center justify-center gap-3'>
                 <div className='hover:cursor-pointer flex' onClick={FirstPage}>
                     <img className='rotate-180 w-2 brightness-70' src={dropdown_icon}/>
                     <img className='rotate-180 w-2 brightness-70' src={dropdown_icon}/>
@@ -64,7 +64,7 @@ const Results = ({page, setPage, totalPages, userInput, results, setResults}) =>
                     <img className=' w-2 brightness-70' src={dropdown_icon}/>
                     <img className=' w-2 brightness-70' src={dropdown_icon}/>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }

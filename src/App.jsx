@@ -17,7 +17,7 @@ function App() {
 
       <UserInput userInput={userInput} setUserInput={setUserInput} setResults={setResults} setPage={setPage} setTotalPages={setTotalPages}/>
 
-      {results.length > 0 && <Results page={page} setPage={setPage} totalPages={totalPages} userInput={userInput} results={results} setResults={setResults}/>}
+      {userInput.length > 0 && <Results page={page} setPage={setPage} totalPages={totalPages} userInput={userInput} results={results} setResults={setResults}/>}
     </div>
   )
 }

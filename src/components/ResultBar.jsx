@@ -34,7 +34,7 @@ const ResultBar = ({index, book_name, summary}) => {
                 </div>
             </div>
             {/* Dropdown content */}
-            <div ref={dropdownRef} className={ `${showDropdown ? 'max-h-100' : 'max-h-0'} text-gray-800 mb-4 overflow-hidden transition-all duration-300 ease-in-out '}`}>
+            <div ref={dropdownRef} className={ ` text-gray-800 mb-4 overflow-hidden transition-all duration-300 ease-in-out '}`}>
                 {summary}
             </div>
         </div>
