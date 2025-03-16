@@ -16,7 +16,7 @@ const Results = ({page, setPage, totalPages, userInput, results, setResults}) =>
 
     const fetchBooks = async () => {
         try{
-          const response = await axios.post("http://127.0.0.1:5000/search", {query: userInput, page_number: page})
+          const response = await axios.post("https://synopsis-book-search.onrender.com/search", {query: userInput, page_number: page})
           console.log(response.data.results)
           setResults(response.data.results.results)
         } catch (error){

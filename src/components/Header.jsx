@@ -4,9 +4,9 @@ const Header = () => {
     return (
         <div>
             <div className='ms-2 text-blue-800 font-semibold bg-white inline-block px-3 float-left absolute mt-2 underline'>
-                <span>  <a href='github.com/oziach'> Frontend Repo </a></span>
+                <span>  <a href='https://github.com/Oziach/synopsis-book-search-frontend' target='_blank'> Frontend Repo </a></span>
                 <span> | </span>
-                <span>  <a href='github.com/oziach'> Backend Repo </a></span>
+                <span>  <a href='https://github.com/Oziach/synopsis-book-search' target='_blank'> Backend Repo </a></span>
             </div>
             <div className='flex p-2 justify-center items-center'>
                 {/* <p className='h-[2px] w-40 bg-yellow-600' /> */}

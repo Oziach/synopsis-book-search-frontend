@@ -13,7 +13,7 @@ const UserInput = ({userInput, setUserInput, setResults, setPage, setTotalPages}
 
   const searchBooks = async () => {
     try{
-      const response = await axios.post("http://127.0.0.1:5000/search", {query: text, page_number:1})
+      const response = await axios.post("https://synopsis-book-search.onrender.com/search", {query: text, page_number:1})
       console.log(response.data.results)
       setResults(response.data.results.results)
       setTotalPages(response.data.results.total_pages)
